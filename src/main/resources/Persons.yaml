@@ -1,0 +1,32 @@
+---
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "ReferenceIssue"
+paths:
+  /empty:
+    get:
+      summary: "Empty operation that does nothing."
+      description: |
+        Swagger Editor requires at least one path to consider a description file as valid.
+        Having this empty operation allows this file to be loaded into Swagger Editor to
+        check for syntax violations.
+      responses:
+        200:
+          description: "No response."
+components:
+  schemas:
+
+    Persons:
+      type: array
+      description: An array of person.
+      items:
+        $ref: "#/components/schemas/Person"
+
+  # ---------------------------------------------------------------------------
+  # Explicitly declare models to be generated from external recources.
+  # Using this approach keeps all external file references in one place.
+  # ---------------------------------------------------------------------------
+
+    Person:
+      $ref: "./person.yaml#/components/schemas/Person"
